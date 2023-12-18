@@ -77,7 +77,7 @@ const markup = images.reduce((html, {original, preview, description}) => {
                 class="gallery-image" 
                 src="${preview}" 
                 alt="${description}" 
-                />
+            />
         </a>
     </li>`
 },``);
