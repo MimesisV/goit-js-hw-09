@@ -4,7 +4,7 @@ import"./assets/modulepreload-polyfill-ec808ebb.js";import{S as t}from"./assets/
                 class="gallery-image" 
                 src="${a}" 
                 alt="${i}" 
-                />
+            />
         </a>
     </li>`,"");n.insertAdjacentHTML("beforeend",c);new t(".gallery a",{captionsData:"alt",captionDelay:250});
 //# sourceMappingURL=commonHelpers.js.map
