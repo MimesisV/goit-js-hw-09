@@ -85,15 +85,7 @@ const markup = images.reduce((html, {original, preview, description}) => {
 
 galleryList.insertAdjacentHTML("beforeend", markup);
 
-galleryList.addEventListener("click", (event) => {
-  event.preventDefault();
-
-  if (event.target.nodeName !== "IMG") {
-    return;
-  }
-
-  const lightbox = new SimpleLightbox('.gallery a', {
+const lightbox = new SimpleLightbox('.gallery a', {
     captionsData: 'alt',
     captionDelay: 250,
   });
-});
