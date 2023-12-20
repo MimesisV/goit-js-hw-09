@@ -1,16 +1,14 @@
 const feedbackFormData = "feedback-form-state";
 
 const form = document.querySelector(".feedback-form");
-const textarea = form.querySelector("textarea");
-const input = form.querySelector("input");
 
 try {
     const dataFromStorage = JSON.parse(localStorage.getItem(feedbackFormData));
     const {email, message} = dataFromStorage;
-
+    
     if(dataFromStorage) {
-        input.value = email;
-        textarea.value = message;
+        form.elements.email.value = email;
+        form.elements.message.value = message;
     };
 
 } catch {
