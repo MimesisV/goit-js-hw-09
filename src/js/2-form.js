@@ -13,13 +13,6 @@ try {
         textarea.value = message;
     };
 
-    // Array.from(form.elements).forEach (element => {
-    //     const storageValue = dataFromStorage[element.name];
-        
-    //     if (storageValue) {
-    //         element.value = storageValue;
-    //     }
-    // })
 } catch {
     if (!JSON.parse(localStorage.getItem(feedbackFormData))) {
         console.log();
@@ -33,7 +26,7 @@ form.addEventListener("input", () => {
     const formObject = {};
 
     formData.forEach((value, key) => {
-        formObject[key] = value;
+        formObject[key] = value.trim();
     })
 
     localStorage.setItem(feedbackFormData, JSON.stringify(formObject))
@@ -41,8 +34,13 @@ form.addEventListener("input", () => {
 
 form.addEventListener("submit", (event) => {
     event.preventDefault();
-    console.log(JSON.parse(localStorage.getItem(feedbackFormData)));
+    const formData = JSON.parse(localStorage.getItem(feedbackFormData));
 
-    localStorage.removeItem(feedbackFormData)
-    form.reset();
- });
+    if (formData && formData.email !== "" && formData.message !== "") {
+        console.log(formData);
+        localStorage.removeItem(feedbackFormData);
+        form.reset();
+    } else {
+        alert("Все поля формы должны быть заполнены");
+    }
+});
