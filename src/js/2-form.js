@@ -6,10 +6,11 @@ const input = form.querySelector("input");
 
 try {
     const dataFromStorage = JSON.parse(localStorage.getItem(feedbackFormData));
+    const {email, message} = dataFromStorage;
 
     if(dataFromStorage) {
-        input.value = dataFromStorage.email;
-        textarea.value = dataFromStorage.message;
+        input.value = email;
+        textarea.value = message;
     };
 
     // Array.from(form.elements).forEach (element => {
@@ -20,7 +21,11 @@ try {
     //     }
     // })
 } catch {
-    console.log("Parse error!");
+    if (!JSON.parse(localStorage.getItem(feedbackFormData))) {
+        console.log();
+    }else {
+        console.log("Parse error!");
+    }
 }
 
 form.addEventListener("input", () => {
