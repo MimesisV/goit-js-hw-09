@@ -4,15 +4,17 @@ const form = document.querySelector(".feedback-form");
 
 function readFormData (form) {
     const email = form.email.value;
-    const massage = form.message.value;
+    const message = form.message.value;
     return {
         email,
-        massage
+        message
     }
 }
 
 try {
     const dataFromStorage = JSON.parse(localStorage.getItem(feedbackFormData));
+    console.log(dataFromStorage.email);
+    console.log(dataFromStorage.message);
 
     if(dataFromStorage) {
         form.email.value = dataFromStorage.email;
