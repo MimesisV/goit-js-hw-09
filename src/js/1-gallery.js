@@ -69,9 +69,9 @@ const images = [
 
 const galleryList = document.querySelector(".gallery");
 
-function makeMarcup (img) {
-  const markup = img.reduce((html, {original, preview, description}) => {
-      return html +=
+function makeMarkup (img) {
+  const markup = img.reduce((html, {original, preview, description}) => 
+      html +=
       `<li class="gallery-item">
           <a class="gallery-link" href="${original}">
               <img 
@@ -81,15 +81,14 @@ function makeMarcup (img) {
               />
           </a>
       </li>`
-  },``);
+  ,``);
 
   galleryList.insertAdjacentHTML("beforeend", markup);
 };
 
-makeMarcup(images);
+makeMarkup(images);
 
 const lightbox = new SimpleLightbox('.gallery a', {
-    close: false,
     captionsData: 'alt',
     captionDelay: 250,
   });
