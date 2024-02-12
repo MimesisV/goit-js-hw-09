@@ -13,8 +13,6 @@ function readFormData (form) {
 
 try {
     const dataFromStorage = JSON.parse(localStorage.getItem(feedbackFormData));
-    console.log(dataFromStorage.email);
-    console.log(dataFromStorage.message);
 
     if(dataFromStorage) {
         form.email.value = dataFromStorage.email;
