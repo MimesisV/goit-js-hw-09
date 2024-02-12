@@ -3,8 +3,8 @@ const feedbackFormData = "feedback-form-state";
 const form = document.querySelector(".feedback-form");
 
 function readFormData (form) {
-    const email = form.email.value;
-    const message = form.message.value;
+    const email = form.email.value.trim();
+    const message = form.message.value.trim();
     return {
         email,
         message
@@ -37,7 +37,7 @@ form.addEventListener("submit", (event) => {
     event.preventDefault();
     const formData = JSON.parse(localStorage.getItem(feedbackFormData));
 
-    if (formData && formData.email !== "" && formData.message !== "") {
+    if (formData && formData.email.trim() !== "" && formData.message.trim() !== "") {
         console.log(formData);
         localStorage.removeItem(feedbackFormData);
         form.reset();
